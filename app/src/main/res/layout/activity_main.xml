@@ -56,6 +56,15 @@
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:gravity="center"
+            android:onClick="@{(v) -> event.onUserClick1(user)}"
             android:text="@{String.valueOf(user.age)}" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:onClick="@{(v) -> event.onUserClick2(v, user)}"
+            android:text="@{user.sex}" />
+
     </LinearLayout>
 </layout>
