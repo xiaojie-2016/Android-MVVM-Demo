@@ -1,21 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <android.support.constraint.ConstraintLayout
+    <!-- data 标签里面的就是要 Binding 的数据
+         如果你觉得自动生成的类名不爽的话，可以在 data 标签内加上 class 属性，如：
+         <data class=".MyBinding">
+         这样的话DataBinding生成的类名就是你想要的了
+    -->
+    <data>
+        <!-- 如果需要引入外部类的话，是需要导入的，
+             这里的 import 和 Java 类中的 import 意义一样 -->
+        <import
+            alias="UU"
+            type="com.xxj.mvvm.demo.android_mvvm_demo.User" />
+        <!-- 如果你导入了同名的类，需要区分的话，这里可以加上别名的 -->
+        <import type="com.xxj.mvvm.demo.android_mvvm_demo.bean.User" />
+
+        <import type="java.util.List" />
+
+        <!-- 数据对象，name 是变量名，type 是类的全路径，或者导入的类名（的别名） -->
+        <variable
+            name="user"
+            type="UU" />
+
+        <!-- 使用集合对象需要先导入集合（List、Map...）的包
+            在 databinding 表达式中不能出现“<”要使用转义 &lt; 代替，
+            > 用 &gt; 代替（右尖括号可以不用使用转义符，但为了美观还是都转了吧。。）
+         -->
+        <variable
+            name="users"
+            type="List&lt;UU&gt;" />
+    </data>
+
+    <!-- 为了方便展示，我把根布局换了 -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.xxj.mvvm.demo.android_mvvm_demo.MainActivity">
+        android:orientation="vertical">
 
+        <!-- 这里的 user.name 调用的实际上是 User 类中的 getName() 方法，如果没有对应的 get 方法，就会报错 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text='@{user.name+"abc"}' />
 
-    </android.support.constraint.ConstraintLayout>
+        <!-- 我们知道 TextView 的内容必须是 String 类型的，这里传入 int 会报错
+             java.lang 包下的类不需要导入 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(user.age)}" />
+    </LinearLayout>
 </layout>
