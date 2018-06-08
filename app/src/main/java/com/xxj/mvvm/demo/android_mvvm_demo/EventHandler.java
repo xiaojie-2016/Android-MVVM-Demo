@@ -4,6 +4,8 @@ import android.graphics.Color;
 import android.view.View;
 import android.widget.Toast;
 
+import com.xxj.mvvm.demo.android_mvvm_demo.bean.User2;
+
 /**
  * 事件绑定类
  * Created by xxj on 05/18.
@@ -28,4 +30,9 @@ public class EventHandler {
         view.setBackgroundColor(Color.BLUE);
         Toast.makeText(Utils.getContext(), "User is click ！"+user.getName(), Toast.LENGTH_LONG).show();
     }
+
+    public void changeName(User2 user2, String name){
+        user2.name.set(name);
+    }
+
 }

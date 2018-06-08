@@ -4,6 +4,8 @@ import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.xxj.mvvm.demo.android_mvvm_demo.bean.User2;
+import com.xxj.mvvm.demo.android_mvvm_demo.databinding.ActivityMain2Binding;
 import com.xxj.mvvm.demo.android_mvvm_demo.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -11,7 +13,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
+
+//        sample1();
+
+        sample2();
+    }
+
+    /**
+     * Android MVVM 系列之 Databinding（一）
+     */
+    private void sample1() {
+        //        setContentView(R.layout.activity_main);
         /*
          使用 DataBinding 布局后这里需要 DataBindingUtil 来完成 setContentView
          返回值是布局的 ViewBinding 对象，
@@ -33,6 +45,20 @@ public class MainActivity extends AppCompatActivity {
         //这里可能会有好事之徒说，我不传 user 呢？我不给他某个参数赋值呢？
         //答：DataBinding不惧怕空指针异常,若表达式结果为null,则根据其结果的值类型显示不同,比如引用类型显示null,int类型显示0,string类型显示空
         binding.setUser(user);
+        binding.setEvent(new EventHandler());
+    }
+
+    /**
+     * Android MVVM 系列之 Databinding（二）
+     */
+    private void sample2() {
+        //这里为了行事方便，给大家新写了一套布局
+        ActivityMain2Binding binding = DataBindingUtil.setContentView(this, R.layout.activity_main2);
+
+        User2 user2 = new User2();
+        user2.age.set(1000);
+        user2.name.set("haruipote");
+        binding.setUser(user2);
         binding.setEvent(new EventHandler());
     }
 }
