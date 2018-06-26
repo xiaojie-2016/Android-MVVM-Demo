@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -10,6 +11,10 @@
         <variable
             name="user"
             type="com.xxj.mvvm.demo.android_mvvm_demo.bean.User2" />
+
+        <variable
+            name="imageUrl"
+            type="String" />
 
     </data>
 
@@ -35,5 +40,17 @@
             android:layout_height="50dp"
             android:gravity="center"
             android:text="@{String.valueOf(user.age)}" />
+
+        <ImageView
+            app:imageUrl="@{imageUrl}"
+            android:layout_width="200dp"
+            android:layout_height="200dp" />
+
+        <!--<ImageView-->
+            <!--app:url="@{user.icon}"-->
+            <!--app:holder="@{@drawable/holder}"-->
+            <!--app:error="@{@drawable/error}"-->
+            <!--android:layout_width="200dp"-->
+            <!--android:layout_height="200dp" />-->
     </LinearLayout>
 </layout>

@@ -1,4 +1,4 @@
-package com.xxj.mvvm.demo.android_mvvm_demo;
+package com.xxj.mvvm.demo.android_mvvm_demo.utils;
 
 import android.app.Application;
 import android.content.Context;

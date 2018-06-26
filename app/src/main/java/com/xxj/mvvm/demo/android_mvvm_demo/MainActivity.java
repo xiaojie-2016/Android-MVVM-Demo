@@ -10,13 +10,17 @@ import com.xxj.mvvm.demo.android_mvvm_demo.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ActivityMain2Binding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 //        sample1();
 
-        sample2();
+//        sample2();
+
+        sample3();
     }
 
     /**
@@ -53,12 +57,21 @@ public class MainActivity extends AppCompatActivity {
      */
     private void sample2() {
         //这里为了行事方便，给大家新写了一套布局
-        ActivityMain2Binding binding = DataBindingUtil.setContentView(this, R.layout.activity_main2);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main2);
 
         User2 user2 = new User2();
         user2.age.set(1000);
         user2.name.set("haruipote");
         binding.setUser(user2);
         binding.setEvent(new EventHandler());
+    }
+
+    /**
+     * Android MVVM 系列之 Databinding（三）
+     * 注解的使用
+     */
+    private void sample3() {
+        sample2();
+        binding.setImageUrl("https://github.com/xiaojie-2016/Android-MVVM-Demo/blob/master/img/img1.jpg?raw=true");
     }
 }

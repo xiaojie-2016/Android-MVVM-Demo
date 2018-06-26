@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.xxj.mvvm.demo.android_mvvm_demo.bean.User2;
+import com.xxj.mvvm.demo.android_mvvm_demo.utils.Utils;
 
 /**
  * 事件绑定类
