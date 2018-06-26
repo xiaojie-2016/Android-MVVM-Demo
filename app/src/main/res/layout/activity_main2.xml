@@ -41,16 +41,16 @@
             android:gravity="center"
             android:text="@{String.valueOf(user.age)}" />
 
-        <ImageView
-            app:imageUrl="@{imageUrl}"
-            android:layout_width="200dp"
-            android:layout_height="200dp" />
-
         <!--<ImageView-->
-            <!--app:url="@{user.icon}"-->
-            <!--app:holder="@{@drawable/holder}"-->
-            <!--app:error="@{@drawable/error}"-->
+            <!--app:imageUrl="@{imageUrl}"-->
             <!--android:layout_width="200dp"-->
             <!--android:layout_height="200dp" />-->
+
+        <ImageView
+            app:url="@{imageUrl}"
+            app:holder="@{@drawable/logo}"
+            app:error="@{@drawable/logo}"
+            android:layout_width="200dp"
+            android:layout_height="200dp" />
     </LinearLayout>
 </layout>
