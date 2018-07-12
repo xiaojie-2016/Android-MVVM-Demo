@@ -29,7 +29,7 @@ public class MyBindingAdapters {
     /**
      * BindingAdapter 还可以定义一组方法，您可以选择他们是否必须同时定义
      */
-    @BindingAdapter(value = {"url", "holder", "error"}, requireAll = true)
+    @BindingAdapter(value = {"imageUrl", "holder", "error"}, requireAll = true)
     public static void bingImgs(ImageView imageView, String url, Drawable holder, Drawable error) {
         //Glide 要求的这些值都是非空的，我这里就 requireAll = true 了，你也可以在这里判空给自定义的默认值，设置 requireAll = false
         GlideApp.with(imageView.getContext())
