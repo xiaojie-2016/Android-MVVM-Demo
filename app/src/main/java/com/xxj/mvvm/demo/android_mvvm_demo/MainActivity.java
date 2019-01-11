@@ -1,7 +1,7 @@
 package com.xxj.mvvm.demo.android_mvvm_demo;
 
-import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.xxj.mvvm.demo.android_mvvm_demo.bean.User2;

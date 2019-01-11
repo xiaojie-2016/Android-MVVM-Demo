@@ -1,8 +1,8 @@
 package com.xxj.mvvm.demo.android_mvvm_demo.bean;
 
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
-import android.databinding.Observable;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+import androidx.databinding.Observable;
 
 import com.xxj.mvvm.demo.android_mvvm_demo.BR;
 

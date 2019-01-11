@@ -1,13 +1,12 @@
 package com.xxj.mvvm.demo.android_mvvm_demo;
 
-import android.databinding.Bindable;
-import android.databinding.BindingAdapter;
+import androidx.databinding.BindingAdapter;
+
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.IdRes;
 import android.widget.ImageView;
 
-import com.xxj.mvvm.demo.android_mvvm_demo.utils.GlideApp;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 /**
  * Created by xxj on 06/24.
@@ -21,7 +20,10 @@ public class MyBindingAdapters {
      */
     @BindingAdapter("imageUrl")
     public static void bindImageUrl(ImageView imageView, String url) {
-        GlideApp.with(imageView.getContext())
+//        GlideApp.with(imageView.getContext())
+//                .load(url)
+//                .into(imageView);
+        Glide.with(imageView)
                 .load(url)
                 .into(imageView);
     }
@@ -32,10 +34,15 @@ public class MyBindingAdapters {
     @BindingAdapter(value = {"imageUrl", "holder", "error"}, requireAll = true)
     public static void bingImgs(ImageView imageView, String url, Drawable holder, Drawable error) {
         //Glide 要求的这些值都是非空的，我这里就 requireAll = true 了，你也可以在这里判空给自定义的默认值，设置 requireAll = false
-        GlideApp.with(imageView.getContext())
+        Glide.with(imageView)
                 .load(url)
-                .placeholder(holder)
-                .error(error)
+                // 升级 AndroidX 我只能把 GlideApp 给去了
+//                .placeholder(holder)
+//                .error(error)
+                .apply(new RequestOptions()
+                        .placeholder(holder)
+                        .error(error)
+                )
                 .into(imageView);
     }
 }

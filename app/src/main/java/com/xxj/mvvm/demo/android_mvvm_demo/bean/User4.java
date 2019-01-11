@@ -1,9 +1,9 @@
 package com.xxj.mvvm.demo.android_mvvm_demo.bean;
 
-import android.databinding.Bindable;
-import android.databinding.Observable;
-import android.databinding.PropertyChangeRegistry;
-import android.support.annotation.NonNull;
+import androidx.databinding.Bindable;
+import androidx.databinding.Observable;
+import androidx.databinding.PropertyChangeRegistry;
+import androidx.annotation.NonNull;
 
 import com.xxj.mvvm.demo.android_mvvm_demo.BR;
 

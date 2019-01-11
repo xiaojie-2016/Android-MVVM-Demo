@@ -1,7 +1,7 @@
 package com.xxj.mvvm.demo.android_mvvm_demo.bean;
 
-import android.databinding.ObservableField;
-import android.databinding.ObservableInt;
+import androidx.databinding.ObservableField;
+import androidx.databinding.ObservableInt;
 
 /**
  * 为了使用可观察的变量，我们新建了一个 User2
